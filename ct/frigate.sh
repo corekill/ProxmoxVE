@@ -70,7 +70,7 @@ function update_script() {
     python3 -m pip install --upgrade pip
 
     cd /opt
-    wget https://github.com/blakeblackshear/frigate/archive/refs/tags/${FRIGATE}.tar.gz -O frigate.tar.gz
+    wget https://github.com/blakeblackshear/frigate/archive/refs/tags/v0.15.0-rc1 -O frigate.tar.gz
     tar -xzf frigate.tar.gz -C frigate --strip-components 1 --overwrite
 
     #Cleanup
