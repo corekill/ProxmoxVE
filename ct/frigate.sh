@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source <(curl -s https://raw.githubusercontent.com/remz1337/ProxmoxVE/remz/misc/build.func)
+source <(curl -s https://raw.githubusercontent.com/corekill/ProxmoxVE/remz/misc/build.func)
 # Copyright (c) 2021-2024 tteck
 # Author: tteck (tteckster) | Co-Author: remz1337
 # License: MIT | https://github.com/remz1337/ProxmoxVE/raw/remz/LICENSE
@@ -14,7 +14,7 @@ var_disk="40"
 var_os="debian"
 var_version="11"
 var_unprivileged="1"
-var_nvidia_passthrough="yes"
+var_nvidia_passthrough="no"
 
 # App Output & Base Settings
 header_info "$APP"
@@ -34,7 +34,7 @@ function update_script() {
     exit
   fi
     
-  FRIGATE=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/blakeblackshear/frigate/releases/latest)
+  FRIGATE=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/blakeblackshear/frigate/releases/tag/v0.15.0-rc1)
   FRIGATE=${FRIGATE##*/}
   
   GO2RTC=$(curl -s https://api.github.com/repos/AlexxIT/go2rtc/releases/latest | grep "tag_name" | awk '{print substr($2, 2, length($2)-3) }')
